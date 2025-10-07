@@ -1,0 +1,61 @@
+.navbar {
+  position: fixed;
+  width: 100%;
+  background-color: #282c34;
+  z-index: 1000;
+}
+
+/* Desktop: navbar arriba */
+.nav-links-desktop {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 10px 0;
+}
+
+.nav-link {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.nav-link.active {
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+/* Mobile: barra con iconos */
+.nav-links-mobile {
+  display: none; /* por defecto oculto en PC */
+}
+
+.nav-icon {
+  color: white;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-icon.active {
+  color: #00bfff;
+}
+
+/* Media query: móviles */
+@media (max-width: 768px) {
+  .nav-links-desktop {
+    display: none; /* oculta versión PC */
+  }
+
+  .nav-links-mobile {
+    display: flex;
+    justify-content: space-around;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #282c34;
+    padding: 8px 0;
+    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.2);
+  }
+}
