@@ -3,18 +3,17 @@
   flex-direction: column; 
   align-items: center;    
   justify-content: center;
-  min-height: 100vh;        /* ocupa toda la pantalla */
-  background: #1e90bd;
-  background: linear-gradient(90deg,rgba(30, 144, 189, 1) 0%, rgba(0, 255, 187, 1) 0%, rgba(32, 176, 132, 1) 100%, rgba(30, 168, 125, 1) 0%, rgba(77, 189, 143, 1) 100%, rgba(87, 199, 133, 1) 100%, rgba(48, 43, 0, 1) 100%);  
+  min-height: 100vh;       
+  background: #F7FEEF;
   padding: 20px;
-  overflow: hidden;             /* evita que aparezca franja blanca */
+  overflow: hidden;           
 }
 
 .login-logo {
   width: 120px;
   height: 120px;
   object-fit: contain;
-  margin-bottom: 5px; /* espacio entre logo y formulario */
+  margin-bottom: 5px; 
 }
 
 h2{
@@ -49,7 +48,7 @@ h2{
 
 .login-button {
   width: 100%;
-  background-color: #007bff;
+  background-color: #A8CA7E;
   color: white;
   padding: 10px;
   border: none;
@@ -60,7 +59,7 @@ h2{
 
 .register-button {
     width: 100%;
-  background-color: #24b0c9;
+  background-color: #608334;
   color: white;
   padding: 10px;
   border: none;

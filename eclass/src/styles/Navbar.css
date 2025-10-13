@@ -5,7 +5,6 @@
   z-index: 1000;
 }
 
-/* Desktop: navbar arriba */
 .nav-links-desktop {
   display: flex;
   justify-content: center;
@@ -24,9 +23,8 @@
   text-decoration: underline;
 }
 
-/* Mobile: barra con iconos */
 .nav-links-mobile {
-  display: none; /* por defecto oculto en PC */
+  display: none; 
 }
 
 .nav-icon {
@@ -41,10 +39,9 @@
   color: #00bfff;
 }
 
-/* Media query: móviles */
 @media (max-width: 768px) {
   .nav-links-desktop {
-    display: none; /* oculta versión PC */
+    display: none; 
   }
 
   .nav-links-mobile {
