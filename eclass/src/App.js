@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Profile from "./pages/Profile";
 import ClassDetail from "./pages/ClassDetail";
+import CreateClass from "./pages/Create";
 
 import Navbar from "./components/Navbar";
 
@@ -33,6 +34,7 @@ function AppContent() {
         <Route path="/home" element={<Home />} />
         <Route path="/class/:classId" element={<ClassDetail />} />
         <Route path="/profile" element={<Profile />} />
+        <Route path="/create-class" element={<CreateClass />} />
       </Routes>
     </>
   );

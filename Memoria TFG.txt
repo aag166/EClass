@@ -1,0 +1,23 @@
+1. Introducción: aquí se pone en contexto el trabajo, un poco un preludio de lo que tiene que ver con el mismo. 
+
+1.1. Objetivos: los ponemos aquí, no sueltos, para que quede englobado donde presentas la idea. Se trata de las funcionalidades o hitos principales. 
+
+1.2. Metodología: cómo has desarrollado el trabajo, metodología empleada, herramientas usadas, etc. 
+
+
+
+2. Estado de arte: aquí necesitamos explicar lo necesario para que se entienda. Por una parte, contexto teórico inicial. Esto te lo puedo dar yo sin problemas, tanto aquí como en introducción puedes rehacer un poco el texto, pero así te será más fácil, y como esa información ya la tengo no es problema. Quizá tendrías que añadir algo sobre la necesidad de crear skins. 
+
+2.1. Tecnologías para el desarrollo: aquí normalmente se exponen las posibles opciones que hay. Normalmente se incluye de frontend, backend (API) y BD, pero como no es una app que hagas de cero, no tendría mucho sentido. Sí se pueden incluir librerías gráficas, tipo la que usamos y alguna más que pueda ser una alternativa, y luego Blender para el diseño, y alguna otra opción. con esto, expones las opciones que hay ahora mismo, características y ventajas/desventajas si puedes, sin decir cuál usamos. 
+
+
+
+3. Desarrollo del proyecto: aquí se expone todo el proyecto. Empezamos explicando la idea, desarrollamos un poco más la idea y el porqué. 
+
+3.1. Arquitectura: aquí, como no es crear la arquitectura de cero, sería poner la de Khipulearn, y si acaso destacar lo que has añadido, pero vamos, en este caso tiene menos "valor", sería para ver cómo está montada. 
+El resto de apartados sería contar cómo lo has montado. Se puede separar en diferentes partes, tipo las competencias, las conexiones, el mapa en conjunto, cómo se gestiona el cambio, dividir entre diseño e implementación. Según veas que se pueda dar valor al trabajo. 
+
+
+4. Caso de uso/Ejemplo de uso: esto sería un flujo de usuario, para mostrar los diferentes aspectos. En tu caso, se puede exponer el curso antes, como vista docente, la versión clásica y cómo queda con la skin. Y después, sería un aprendiz que entra al curso y ver cómo varían las competencias según avanza, mostrando un cambio de estado y desbloqueos de conexiones. 
+Conclusiones
+Referencias

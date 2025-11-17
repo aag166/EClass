@@ -1,0 +1,100 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  name      String
+  email     String   @unique
+  password  String
+  role      String   @default("alumno") // alumno / profesor / admin
+  createdAt DateTime @default(now())
+  courses   Course[] @relation("ProfesorCursos") 
+  enrollments Enrollment[]
+  submissions Submission[]
+  progress   Progress[]
+}
+
+model Course {
+  id          Int      @id @default(autoincrement())
+  title       String
+  description String
+  professorId Int
+  professor   User     @relation("ProfesorCursos", fields: [professorId], references: [id])
+  createdAt   DateTime @default(now())
+  modules     Module[]
+  enrollments Enrollment[]
+}
+
+model Enrollment {
+  id       Int    @id @default(autoincrement())
+  userId   Int
+  courseId Int
+  user     User   @relation(fields: [userId], references: [id])
+  course   Course @relation(fields: [courseId], references: [id])
+  enrolledAt DateTime @default(now())
+}
+
+model Module {
+  id        Int      @id @default(autoincrement())
+  courseId  Int
+  title     String
+  description String
+  order     Int
+  course    Course   @relation(fields: [courseId], references: [id])
+  activities Activity[]
+  resources Resource[]
+  progress    Progress[]  
+}
+
+model Activity {
+  id       Int     @id @default(autoincrement())
+  moduleId Int
+  type     String   // quiz / tarea / recurso
+  title    String
+  content  String
+  createdAt DateTime @default(now())
+  module   Module   @relation(fields: [moduleId], references: [id])
+  submissions Submission[]
+}
+
+model Submission {
+  id         Int     @id @default(autoincrement())
+  activityId Int
+  userId     Int
+  answer     String
+  grade      Float?
+  submittedAt DateTime @default(now())
+  activity   Activity @relation(fields: [activityId], references: [id])
+  user       User     @relation(fields: [userId], references: [id])
+}
+
+model Resource {
+  id       Int    @id @default(autoincrement())
+  moduleId Int
+  type     String // pdf, video, link
+  url      String
+  description String
+  module   Module @relation(fields: [moduleId], references: [id])
+}
+
+model Progress {
+  id         Int     @id @default(autoincrement())
+  userId     Int
+  moduleId   Int
+  percentage Float
+  updatedAt  DateTime @default(now())
+  user       User   @relation(fields: [userId], references: [id])
+  module     Module @relation(fields: [moduleId], references: [id])
+}

@@ -3,11 +3,9 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css"; // Importa los estilos base del calendario
-import { useNavigate } from "react-router-dom";
 
 export default function Home() {
 
-  const navigate = useNavigate();
 
   const [selectedDate, setSelectedDate] = useState(new Date());
 
@@ -23,13 +21,6 @@ export default function Home() {
     { date: "2025-10-20", title: "Entrega de notas 1º ESO" },
   ];
 
- const handleAddClass = () => {
-    alert("Funcionalidad para añadir clase"); // aquí luego abrirías un modal o formulario
-  };
-
-  const handleAddEvent = () => {
-    alert("Funcionalidad para añadir evento"); // lo mismo, más adelante conectas al calendario
-  };
   
   // Filtra eventos del día seleccionado
   const selectedEvents = events.filter(
@@ -38,14 +29,6 @@ export default function Home() {
 
   return (
     <div className="home-container">
-      <div className="floating-buttons">
-        <button className="floating-btn" onClick={() => alert("Añadir clase")}>
-          + Clase
-        </button>
-        <button className="floating-btn" onClick={() => alert("Añadir evento")}>
-          + Evento
-        </button>
-      </div>
 
       <h1 className="home-title">Panel del Profesor</h1>
       

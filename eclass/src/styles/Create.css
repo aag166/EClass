@@ -1,0 +1,182 @@
+/* ---------- GENERAL CONTAINER ---------- */
+.class-assignment-container {
+  min-height: 100vh;
+  background: #F7FEEF;
+  padding: 2rem;
+  font-family: "Segoe UI", sans-serif;
+  color: #1e293b;
+  align-items: center;
+}
+
+/* ---------- TITLES ---------- */
+.class-assignment-container h1 {
+    
+  text-align: center;
+  font-size: 2rem;
+  margin-top: 35px;
+  margin-bottom: 30px;
+  color: #333;
+
+}
+
+.section {
+  background-color: #ffffff;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* ---------- INPUTS ---------- */
+.section input[type="text"],
+.section textarea {
+  width: 100%;
+  padding: 0.7rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+}
+
+.section textarea {
+  resize: vertical;
+}
+
+/* ---------- STUDENT GRID ---------- */
+.students-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1rem;
+}
+
+.student-card {
+  background-color: #f8fafc;
+  border: 2px solid #e2e8f0;
+  border-radius: 1rem;
+  padding: 1rem;
+  cursor: pointer;
+  transition: all 0.25s ease-in-out;
+}
+
+
+
+.student-card.selected {
+  background-color: #CBDDB5;
+}
+
+/* ---------- STUDENT CARD TEXT ---------- */
+.student-card p {
+  margin: 0.2rem 0;
+  font-size: 0.9rem;
+}
+
+.student-card p:first-child {
+  font-weight: 600;
+  font-size: 1rem;
+  color: #333;
+}
+
+/* ---------- SELECTED STUDENTS LIST ---------- */
+.selected-list {
+  background-color: #fff;
+  border-radius: 1rem;
+  padding: 1.2rem;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+}
+
+.selected-list ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+}
+
+.selected-list li {
+  margin: 0.3rem 0;
+}
+
+/* ---------- BUTTONS ---------- */
+.actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.actions button,
+.actions a {
+  text-decoration: none;
+  background-color: #333;
+  color: white;
+  padding: 0.6rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  border: none;
+  transition: background 0.25s ease-in-out;
+}
+
+.actions button:hover,
+.actions a:hover {
+  background-color: #97B770;
+}
+
+.actions .cancel-btn {
+  background-color: #6b7280;
+}
+
+.actions .cancel-btn:hover {
+  background-color: #4b5563;
+}
+
+.save-btn {
+  background-color: #16a34a; /* verde principal */
+  color: white;
+  border: none;
+  display: block;
+  margin: 0 auto; 
+  text-align: center;
+  padding: 0.8rem 1.6rem;
+  border-radius: 0.6rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(22, 163, 74, 0.3);
+  transition: all 0.25s ease-in-out;
+}
+
+
+.save-btn:hover {
+  background-color: #15803d; /* verde más oscuro al pasar el ratón */
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(22, 163, 74, 0.4);
+}
+
+.save-btn:active {
+  transform: scale(0.98);
+  box-shadow: 0 3px 6px rgba(22, 163, 74, 0.3);
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 768px) {
+  .class-assignment-container {
+    padding: 1rem;
+  }
+
+  .student-card {
+    padding: 0.8rem;
+  }
+
+  .actions {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+ .save-btn {
+    display: block;
+    margin: 0 auto; 
+    text-align: center;
+  }
+ 
+  .class-assignment-container {
+    padding-bottom: 6rem; 
+  }
+}

@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
-import { FaHome, FaUser } from "react-icons/fa";
+import { FaHome, FaUser, FaRegPlusSquare } from "react-icons/fa";
 import "../styles/Navbar.css";
 
 export default function Navbar() {
@@ -13,8 +13,15 @@ export default function Navbar() {
           to="/home"
           className={`nav-link ${location.pathname === "/home" ? "active" : ""}`}
         >
-          Home
+          Inicio
         </Link>
+        <Link
+          to="/create-class"
+          className={`nav-link ${location.pathname === "/create" ? "active" : ""}`}
+        >
+          Crear clase
+        </Link>
+        
         <Link
           to="/profile"
           className={`nav-link ${location.pathname === "/profile" ? "active" : ""}`}
@@ -30,6 +37,12 @@ export default function Navbar() {
           className={`nav-icon ${location.pathname === "/home" ? "active" : ""}`}
         >
           <FaHome size={24} />
+        </Link>
+        <Link
+          to="/create-class"
+          className={`nav-icon ${location.pathname === "/create" ? "active" : ""}`}
+        >
+          <FaRegPlusSquare size={24} />
         </Link>
         <Link
           to="/profile"

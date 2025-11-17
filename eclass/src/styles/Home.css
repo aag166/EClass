@@ -144,38 +144,6 @@ html, body, #root {
   border-radius: 8px;
   color: #333;
 }
-.floating-buttons {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  background-color: #608334;
-  padding: 15px 0;
-  z-index: 1000;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
-}
-
-.floating-btn button {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-  background-color: #608334;
-  padding: 15px 0;
-  z-index: 1000;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
-}
-
-.floating-btn:hover {
-  background-color: #CBDDB5;
-  transform: scale(1.05);
-}
 
 
 @media (max-width: 768px) {
