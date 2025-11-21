@@ -1,0 +1,92 @@
+.register-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #F7FEEF;
+    padding: 20px;
+  }
+  
+  .register-card {
+    background: white;
+    padding: 40px;
+    width: 380px;
+    border-radius: 15px;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    animation: fadeIn 0.3s ease-in-out;
+  }
+  
+  .register-title {
+    font-size: 26px;
+    color: #333;
+    margin-bottom: 25px;
+    font-weight: bold;
+  }
+  
+  .register-input {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 18px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    outline: none;
+    transition: all 0.2s ease;
+  }
+  
+  .register-input:focus {
+    border-color: #383838;
+    box-shadow: 0 0 5px rgba(55, 81, 255, 0.4);
+  }
+  
+  .register-button {
+    width: 100%;
+    padding: 12px;
+    background-color: #666666;
+    color: white;
+    border: none;
+    font-size: 17px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.2s ease;
+    margin-top: 10px;
+  }
+  
+  .register-button:hover {
+    background-color: #383838;
+  }
+  
+  .register-error {
+    color: red;
+    margin-bottom: 10px;
+    font-size: 14px;
+  }
+  
+  .register-footer {
+    margin-top: 15px;
+    font-size: 15px;
+  }
+  
+  .register-login-link {
+    color: #3751ff;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .register-login-link:hover {
+    text-decoration: underline;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(15px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  

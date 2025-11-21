@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 import "../styles/Login.css";
 import logo from "../logo/logo.png";
 
@@ -9,28 +10,45 @@ export default function Login() {
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
+    setError(""); // Limpiar errores previos
 
-    // Simulación de login
-    if (email === "profesor@centro.es" && password === "1234") {
-      localStorage.setItem("user", JSON.stringify({ email }));
-      navigate("/home"); 
-    } else {
-      setError("Credenciales incorrectas. Intenta de nuevo.");
+    try {
+      const res = await axios.post("http://localhost:3005/api/auth/login", {
+        email,
+        password,
+      });
+
+      // Guardar token en localStorage
+      localStorage.setItem("token", res.data.token);
+
+      // Guardar info del profesor también (opcional)
+      localStorage.setItem("user", JSON.stringify(res.data.user));
+
+      navigate("/home");
+    } catch (err) {
+      console.error(err);
+
+      if (err.response?.status === 401) {
+        setError("Credenciales incorrectas. Intenta de nuevo.");
+      } else {
+        setError("Error al conectar con el servidor.");
+      }
     }
   };
 
   return (
-    
     <div className="login-container">
-        <img
-          src={logo} 
-          alt="Logo de la app"
-          className="login-logo"
-        />
+      <img
+        src={logo}
+        alt="Logo de la app"
+        className="login-logo"
+      />
+
       <div className="login-card">
         <h1 className="login-title">Inicio de Sesión</h1>
+
         <form onSubmit={handleLogin}>
           <input
             type="email"
@@ -40,6 +58,7 @@ export default function Login() {
             required
             className="login-input"
           />
+
           <input
             type="password"
             placeholder="Contraseña"
@@ -54,9 +73,13 @@ export default function Login() {
           <button type="submit" className="login-button">
             Iniciar Sesión
           </button>
-          <h2>¿No tienes cuenta?</h2>
-          <button type="submit" className="register-button">
-          Crear Cuenta
+
+          <button
+            type="button"
+            className="register-button"
+            onClick={() => navigate("/register")}
+          >
+            Crear Cuenta
           </button>
         </form>
       </div>

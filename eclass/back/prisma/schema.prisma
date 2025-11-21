@@ -1,0 +1,163 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  name      String
+  email     String   @unique
+  password  String
+  role      String   @default("alumno") // alumno / profesor
+  createdAt DateTime @default(now())
+
+  // Nota: los alumnos se asignan a `Class` vía `ClassStudent`. No hay relación directa a `Course` aquí.
+
+  // Relación profesor con cursos
+  taughtCourses Course[] @relation("ProfesorCursos")
+
+  // Relación profesor con clases
+  taughtClasses Class[] @relation("ClassProfessor")
+
+  // Características especiales para alumnos (usadas en el algoritmo de generación de clases)
+  nivel          String?
+  comportamiento String?
+  intereses      String?
+  birthYear      Int?
+  observaciones  String?
+
+  // Relación con clases (many-to-many) - Los alumnos pertenecen a clases
+  classes ClassStudent[]
+
+  submissions Submission[]
+  progress    Progress[]
+  // Eliminado: course / courseId porque los alumnos pertenecen a una `Class` y ésta a su vez a `Course`.
+}
+
+model Course {
+  id          Int      @id @default(autoincrement())
+  title       String
+  description String
+  createdAt   DateTime @default(now())
+
+  professorId Int
+  professor   User @relation("ProfesorCursos", fields: [professorId], references: [id])
+
+  modules Module[]
+
+  // Relación many-to-many con `Class` a través de `ClassCourse` (tabla intermedia)
+  classCourses ClassCourse[]
+}
+
+model Module {
+  id          Int        @id @default(autoincrement())
+  courseId    Int
+  title       String
+  description String
+  order       Int
+  course      Course     @relation(fields: [courseId], references: [id])
+  activities  Activity[]
+  resources   Resource[]
+  progress    Progress[]
+}
+
+model Activity {
+  id          Int          @id @default(autoincrement())
+  moduleId    Int
+  type        String // quiz / tarea / recurso
+  title       String
+  content     String
+  createdAt   DateTime     @default(now())
+  module      Module       @relation(fields: [moduleId], references: [id])
+  submissions Submission[]
+}
+
+model Submission {
+  id          Int      @id @default(autoincrement())
+  activityId  Int
+  userId      Int
+  answer      String
+  grade       Float?
+  submittedAt DateTime @default(now())
+  activity    Activity @relation(fields: [activityId], references: [id])
+  user        User     @relation(fields: [userId], references: [id])
+}
+
+model Resource {
+  id          Int    @id @default(autoincrement())
+  moduleId    Int
+  type        String // pdf, video, link
+  url         String
+  description String
+  module      Module @relation(fields: [moduleId], references: [id])
+}
+
+model Progress {
+  id         Int      @id @default(autoincrement())
+  userId     Int
+  moduleId   Int
+  percentage Float
+  updatedAt  DateTime @default(now())
+  user       User     @relation(fields: [userId], references: [id])
+  module     Module   @relation(fields: [moduleId], references: [id])
+}
+
+// Modelo para las clases generadas por el algoritmo
+model Class {
+  id          Int      @id @default(autoincrement())
+  name        String
+  description String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  professorId Int?
+  professor   User? @relation("ClassProfessor", fields: [professorId], references: [id])
+
+  students ClassStudent[]
+
+  // Relación many-to-many con `Course` a través de `ClassCourse`
+  classCourses ClassCourse[]
+}
+
+// Tabla intermedia para la relación many-many entre Class y Course
+// Eliminado el modelo intermedio ClassCourse: ahora `Class` contiene `courseId`.
+
+// Tabla intermedia para la relación many-to-many entre Class y User 
+model ClassStudent {
+  id        Int      @id @default(autoincrement())
+  classId   Int
+  studentId Int
+  createdAt DateTime @default(now())
+
+  class   Class @relation(fields: [classId], references: [id], onDelete: Cascade)
+  student User  @relation(fields: [studentId], references: [id], onDelete: Cascade)
+
+  @@unique([classId, studentId])
+  @@index([classId])
+  @@index([studentId])
+}
+
+// Tabla intermedia para la relación many-to-many entre Class y Course
+model ClassCourse {
+  id        Int     @id @default(autoincrement())
+  classId   Int
+  courseId  Int
+  createdAt DateTime @default(now())
+
+  class  Class  @relation(fields: [classId], references: [id], onDelete: Cascade)
+  course Course @relation(fields: [courseId], references: [id], onDelete: Cascade)
+
+  @@unique([classId, courseId])
+  @@index([classId])
+  @@index([courseId])
+}

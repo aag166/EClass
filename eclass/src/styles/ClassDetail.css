@@ -50,6 +50,19 @@
   background: #e9eefc;
 }
 
+.student-item-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  text-decoration: none;
+  color: inherit;
+}
+
+.student-item-body {
+  flex: 1;
+}
+
 .student-avatar {
   width: 36px;
   height: 36px;
@@ -69,14 +82,36 @@
   color: #333;
 }
 
+.student-email-meta {
+  font-size: 0.85rem;
+  color: #666;
+  margin: 0.25rem 0 0 0;
+}
+
+.student-link-icon {
+  font-size: 0.85rem;
+  color: #4f6df5;
+  font-weight: 600;
+}
+
 .back-link {
   display: inline-block;
   margin-top: 20px;
-  color: #4f6df5;
+  color: #A8CA7E;
   text-decoration: none;
   font-weight: 500;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  padding: 10px 20px;
+  border-radius: 8px;
+  background-color: #97B76B;
+  color: white;
 }
 
 .back-link:hover {
   text-decoration: underline;
+  background-color: #608334;
 }

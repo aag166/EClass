@@ -127,7 +127,7 @@
 }
 
 .save-btn {
-  background-color: #16a34a; /* verde principal */
+  background-color: #16a34a;
   color: white;
   border: none;
   display: block;
@@ -144,7 +144,7 @@
 
 
 .save-btn:hover {
-  background-color: #15803d; /* verde más oscuro al pasar el ratón */
+  background-color: #15803d; 
   transform: translateY(-2px);
   box-shadow: 0 6px 12px rgba(22, 163, 74, 0.4);
 }
@@ -153,6 +153,107 @@
   transform: scale(0.98);
   box-shadow: 0 3px 6px rgba(22, 163, 74, 0.3);
 }
+
+/*-- PARÁMETROS DE GENERACIÓN--*/
+
+/* ---------- ESTILO INPUTS DE PARÁMETROS DE GENERACIÓN ---------- */
+.generation-input {
+  width: 100%;
+  padding: 0.7rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+}
+
+.generation-input::placeholder {
+  color: #94a3b8;
+  opacity: 1;
+}
+
+/* ---------- BOTÓN GENERAR ESTILO UNIFORME ---------- */
+.generate-btn {
+  background-color: #16a34a; /* verde principal */
+  color: white;
+  border: none;
+  padding: 0.8rem 1.6rem;
+  border-radius: 0.6rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(22, 163, 74, 0.3);
+  transition: all 0.25s ease-in-out;
+  display: block;
+  margin: 0 auto; /* centrado */
+}
+
+.generate-btn:hover {
+  background-color: #15803d;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(22, 163, 74, 0.4);
+}
+
+.generate-btn:active {
+  transform: scale(0.98);
+  box-shadow: 0 3px 6px rgba(22, 163, 74, 0.3);
+}
+.input-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.input-group label {
+  margin-bottom: 0.3rem;
+  font-weight: 600;
+  color: #334155; /* color similar al texto principal */
+  font-size: 0.95rem;
+}
+
+
+/*-- BOTONES DE SELECCIONAR TODOS Y QUITAR SELECCIÓN --*/
+
+.filters {
+  display: flex;
+  justify-content: center; /* centra horizontalmente */
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.filter-btn {
+  background-color: #16a34a; /* verde principal */
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease-in-out;
+  margin-left: 0.5rem;
+
+}
+
+.filter-btn:hover {
+  background-color: #15803d;
+  transform: translateY(-2px);
+}
+
+.filter-btn:active {
+  transform: scale(0.98);
+  box-shadow: 0 3px 6px rgba(22, 163, 74, 0.3);
+}
+
+.cancel-btn {
+  background-color: #6b7280; 
+}
+
+.cancel-btn:hover {
+  background-color: #4b5563;
+}
+
 
 /* ---------- RESPONSIVE ---------- */
 @media (max-width: 768px) {

@@ -1,0 +1,91 @@
+.class-details-container {
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.class-details-card {
+  width: 100%;
+  max-width: 980px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(20, 30, 60, 0.06);
+  padding: 1.5rem 2rem;
+  border: 1px solid #e9eefb;
+}
+
+.class-title {
+  font-size: 1.6rem;
+  margin: 0 0 0.5rem 0;
+  color: #222;
+}
+
+.muted {
+  color: #666;
+  margin-top: 0.25rem;
+}
+
+.student-list {
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0 1rem 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 0.75rem;
+}
+
+.student-item {
+  background: #f8f9ff;
+  border-radius: 8px;
+  padding: 0.6rem;
+  border: 1px solid #eef2ff;
+}
+
+.student-item-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+}
+
+.student-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #4f6df5;
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  margin-right: 0.75rem;
+}
+
+.student-item-body {
+  flex: 1;
+}
+
+.student-name {
+  font-weight: 600;
+  display: block;
+}
+
+.student-email-meta {
+  font-size: 0.85rem;
+  color: #666;
+  margin: 0.15rem 0 0 0;
+}
+
+.student-link-icon {
+  color: #1976d2;
+  font-size: 0.9rem;
+}
+
+.back-link {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+  color: #ffffff;
+  width: 20%;
+  height: 10%;
+}

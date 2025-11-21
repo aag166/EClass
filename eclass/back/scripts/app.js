@@ -1,7 +1,13 @@
 const express = require("express");
 const app = express();
+const cors = require("cors");
 
 app.use(express.json());
+
+app.use(cors({
+    origin: "http://localhost:3000", // puerto de mi front
+    credentials: true
+  }));
 
 // Importar rutas
 const routes = require("../routes");

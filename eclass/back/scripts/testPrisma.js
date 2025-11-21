@@ -1,20 +1,18 @@
+require("dotenv").config({ path: __dirname + "/.env" });
+
+console.log("DATABASE_URL:", process.env.DATABASE_URL);  // DEBUG
+
 const { PrismaClient } = require("@prisma/client");
 const prisma = new PrismaClient();
 
 async function main() {
-  // Sacar todos los usuarios
   const users = await prisma.user.findMany();
-  console.log("Usuarios:", users);
-
-  // Sacar todos los cursos
   const courses = await prisma.course.findMany();
+
+  console.log("Usuarios:", users);
   console.log("Cursos:", courses);
 }
 
 main()
-  .catch((e) => {
-    console.error(e);
-  })
-  .finally(async () => {
-    await prisma.$disconnect();
-  });
+  .catch((e) => console.error(e))
+  .finally(() => prisma.$disconnect());

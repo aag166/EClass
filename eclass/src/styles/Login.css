@@ -18,8 +18,7 @@
 
 h2{
   text-align: center;
-  margin-top: 5px;
-  margin-bottom: 5px;
+  margin-top: 10px;
 }
 
 .login-card {
@@ -36,6 +35,7 @@ h2{
   margin-bottom: 20px;
   font-size: 1.5rem;
   color: #333;
+  font-weight: bold;
 }
 
 .login-input {
@@ -69,7 +69,7 @@ h2{
 }
 
 .login-button:hover {
-  background-color: #2b3947;
+  background-color: #608334;
 }
 
 .login-error {
